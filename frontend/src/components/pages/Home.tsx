@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 const Home: React.FC = () => {
   return (
@@ -8,6 +9,7 @@ const Home: React.FC = () => {
         <title>Home</title>
       </Helmet>
       <div>Home</div>
+      <Link to="/login">ログイン</Link>
     </>
   );
 };
