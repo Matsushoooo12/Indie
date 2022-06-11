@@ -1,15 +1,30 @@
+import { signOut } from "firebase/auth";
 import React from "react";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../../firebase/config";
 
 const Home: React.FC = () => {
+  const navigate = useNavigate();
+
+  const signOutWithGoogle = () => {
+    signOut(auth)
+      .then(() => {
+        navigate("/login");
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
   return (
     <>
       <Helmet>
         <title>Home</title>
       </Helmet>
       <div>Home</div>
-      <Link to="/login">ログイン</Link>
+      <div>
+        <button onClick={signOutWithGoogle}>Sign Out</button>
+      </div>
     </>
   );
 };
