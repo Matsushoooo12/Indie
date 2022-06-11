@@ -6,6 +6,7 @@ import "./App.css";
 import Login from "./components/pages/auth/Login";
 import Home from "./components/pages/Home";
 import Page404 from "./components/pages/Page404";
+import Top from "./components/pages/Top";
 import { auth } from "./firebase/config";
 
 const App: React.FC = () => {
@@ -30,6 +31,7 @@ const App: React.FC = () => {
           </>
         ) : (
           <>
+            <Route index element={<Top />} />
             <Route path="login" element={<Login />} />
             <Route path="*" element={<Page404 />} />
           </>
